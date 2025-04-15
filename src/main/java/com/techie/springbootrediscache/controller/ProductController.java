@@ -3,6 +3,7 @@ package com.techie.springbootrediscache.controller;
 import com.techie.springbootrediscache.dto.ProductDto;
 import com.techie.springbootrediscache.service.ProductService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,13 @@ public class ProductController {
 
     private final ProductService productService;
 
+    @Autowired
+    private ProductService myService;
+
+    @GetMapping("/data")
+    public String getData(@RequestParam String input) {
+        return myService.getData(input);
+    }
     public ProductController(ProductService productService) {
         this.productService = productService;
     }

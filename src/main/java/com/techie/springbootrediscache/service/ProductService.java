@@ -51,6 +51,22 @@ public class ProductService {
                 updatedProduct.getPrice());
     }
 
+
+    @Cacheable("myCache")
+    public String getData(String input) {
+        simulateSlowService();
+        return "Processed: " + input;
+    }
+
+    private void simulateSlowService() {
+        try {
+            Thread.sleep(3000); // Simulate delay
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+
     @CacheEvict(value = PRODUCT_CACHE, key = "#productId")
     public void deleteProduct(Long productId) {
         productRepository.deleteById(productId);
