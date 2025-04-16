@@ -14,7 +14,7 @@ public class MyController {
 
     @GetMapping("/data")
     public String getData(@RequestParam String input) {
-        System.out.println("value being inserted into Redis : " + input);
+        System.out.println("Value being inserted into Redis : " + input);
         return myService.getData(input);
     }
 }
