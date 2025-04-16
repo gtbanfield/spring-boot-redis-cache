@@ -12,7 +12,7 @@ public class MyController {
     @Autowired
     private MyService myService;
 
-    @GetMapping("/data")
+    @GetMapping("redis/v1.0/data")
     public String getData(@RequestParam String input) {
         System.out.println("Value being inserted into Redis : " + input);
         return myService.getData(input);
