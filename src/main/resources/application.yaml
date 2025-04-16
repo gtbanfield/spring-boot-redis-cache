@@ -1,33 +1,21 @@
-spring:
-  application:
-    name: spring-boot-redis-cache
+spring.application.name=spring-boot-redis-cache
 
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driverClassName: org.h2.Driver
-    username: sa
-    password: password
+server.servlet.contextPath=/redis/v1.0
 
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=password
 
-  cache:
-    type: redis
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
 
-  data:
-    redis:
-      host: localhost
-      port: 6379
+spring.cache.type=redis
 
-server:
-  port: 8080
+spring.data.redis.host=localhost
+spring.data.redis.port=6379
 
-logging:
-  level:
-    org:
-      springframework:
-        cache: DEBUG
+server.port=8080
+
+logging.level.org.springframework.cache=DEBUG
